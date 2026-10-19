@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>图提取 ImageGrab · 图片库</title>
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body>
+  <!-- ===== 顶部工具栏 ===== -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <path d="M21 15l-5-5L5 21"></path>
+        </svg>
+        <span class="brand-name">图提取 <em>ImageGrab</em></span>
+      </div>
+      <p class="source" id="source-line">等待提取结果…</p>
+    </div>
+
+    <div class="topbar-right">
+      <div class="stat" title="已提取图片总数">
+        <span class="stat-num" id="stat-total">0</span>
+        <span class="stat-label">张图片</span>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="stat stat--accent" title="当前已勾选数量">
+        <span class="stat-num" id="stat-selected">0</span>
+        <span class="stat-label">张已选</span>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-ghost" id="btn-select-all">全选</button>
+        <button type="button" class="btn btn-ghost" id="btn-invert">反选</button>
+        <button type="button" class="btn btn-ghost" id="btn-select-none">清空</button>
+      </div>
+
+      <button type="button" class="btn btn-primary" id="btn-download">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <path d="M7 10l5 5 5-5"></path>
+          <path d="M12 15V3"></path>
+        </svg>
+        下载选中（PNG）
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== 进度条 / 结果反馈 ===== -->
+  <div class="progress-wrap" id="progress-wrap" hidden>
+    <div class="progress-info">
+      <span id="progress-text">准备中…</span>
+      <span id="progress-percent">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <!-- ===== 图片网格 ===== -->
+  <main class="gallery" id="gallery" aria-live="polite"></main>
+
+  <!-- ===== 空状态 ===== -->
+  <section class="empty" id="empty" hidden>
+    <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.4"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+      <path d="M21 15l-5-5L5 21"></path>
+    </svg>
+    <h2>还没有提取到图片</h2>
+    <p>请打开淘宝、天猫、京东或拼多多商家版的<strong>商品详情页</strong>，点击页面右下角的
+      <strong>「获取图片」</strong>悬浮按钮，图片会自动出现在这里。</p>
+    <ol class="empty-steps">
+      <li>打开商品详情页</li>
+      <li>点击右下角「获取图片」</li>
+      <li>回到本页勾选并下载为 PNG</li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <span>图提取 ImageGrab · 电商图片下载插件</span>
+    <span class="dot">·</span>
+    <span>下载格式统一为 PNG，文件名自动编号</span>
+  </footer>
+
+  <!-- 演示模式数据（?mock=1 时才生效），必须在 gallery.js 之前加载 -->
+  <script src="gallery-mock-data.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

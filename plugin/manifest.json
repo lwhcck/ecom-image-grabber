@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "图提取 ImageGrab · 电商图片下载插件",
+  "version": "1.0.0",
+  "description": "在淘宝/天猫/京东/拼多多商家版商品详情页一键提取所有商品图片，新页面网格预览、自由勾选，批量下载为 PNG。",
+  "minimum_chrome_version": "102",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "*://*.taobao.com/*",
+    "*://*.tmall.com/*",
+    "*://*.jd.com/*",
+    "*://*.pinduoduo.com/*",
+    "*://*.yangkeduo.com/*",
+
+    "*://*.alicdn.com/*",
+    "*://*.tbcdn.cn/*",
+    "*://*.360buyimg.com/*",
+    "*://*.pddpic.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_title": "图提取 ImageGrab —— 打开图片库",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.taobao.com/*",
+        "*://*.tmall.com/*",
+        "*://*.jd.com/*",
+        "*://*.pinduoduo.com/*",
+        "*://*.yangkeduo.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["*://*.taobao.com/*", "*://*.tmall.com/*", "*://*.jd.com/*", "*://*.pinduoduo.com/*", "*://*.yangkeduo.com/*"]
+    }
+  ]
+}

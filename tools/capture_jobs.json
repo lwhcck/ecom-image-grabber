@@ -1,0 +1,46 @@
+[
+  {
+    "title": "插件图片库（真实提取结果 + 下载反馈）",
+    "url": "http://127.0.0.1:8901/gallery-mock.html",
+    "out": "C:\\Users\\lenovo\\Desktop\\实习\\作业三\\04_提交材料\\截图\\03_插件运行截图.png",
+    "width": 1500,
+    "height": 900,
+    "fullPage": false,
+    "loadWaitMs": 1200,
+    "waitFor": "Array.from(document.querySelectorAll('.card-thumb img')).length>0 && Array.from(document.querySelectorAll('.card-thumb img')).every(function(i){return i.complete && i.naturalWidth>0;})",
+    "evalAfter": "document.getElementById('btn-download').click()",
+    "extraWaitMs": 1200
+  },
+  {
+    "title": "插件真实提取结果取证（content.js 实跑）",
+    "url": "http://127.0.0.1:8901/capture.html",
+    "out": "C:\\Users\\lenovo\\Desktop\\实习\\作业三\\04_提交材料\\截图\\03B_提取逻辑实测.png",
+    "width": 1920,
+    "height": 1200,
+    "fullPage": true,
+    "loadWaitMs": 1500,
+    "waitFor": "!!document.getElementById('s-valid') && document.getElementById('s-valid').textContent.indexOf('—') < 0",
+    "extraWaitMs": 600
+  },
+  {
+    "title": "官网首页（桌面全页）",
+    "url": "http://127.0.0.1:8900/index.html",
+    "out": "C:\\Users\\lenovo\\Desktop\\实习\\作业三\\04_提交材料\\截图\\06_GitHubPages官网截图.png",
+    "width": 1440,
+    "height": 1000,
+    "fullPage": true,
+    "loadWaitMs": 1500,
+    "extraWaitMs": 800
+  },
+  {
+    "title": "官网首页（375px 窄屏）",
+    "url": "http://127.0.0.1:8900/index.html",
+    "out": "C:\\Users\\lenovo\\Desktop\\实习\\作业三\\04_提交材料\\截图\\06B_官网_手机375.png",
+    "width": 375,
+    "height": 812,
+    "mobile": true,
+    "fullPage": true,
+    "loadWaitMs": 1500,
+    "extraWaitMs": 600
+  }
+]
